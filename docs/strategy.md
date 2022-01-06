@@ -142,9 +142,11 @@ APIs should only be _app-private_ if it contains necessary optimizations that ma
 
 
 ### <a id="consistency"></a>Consistency
-To facilitate API adoption and make it easier to do reviews between teams following the API First principle, we should strive for _consistency_ in our APIs. REST is the preferred API mechanism in Equinor, except for industrial automation, where [OPC UA](#opc-ua) is the preference. The [Equinor REST API Guidelines](rest_guidelines.md) is an accompanying document containing guidelines and recommendations specifically for REST API design.
+To facilitate API adoption and make it easier to do reviews between teams following the API First principle, we should strive for _consistency_ in our APIs. REST is the most common API mechanism in Equinor, and the only API type that is supported by the [API portal](#api-portal) and the [API gateway](#api-gateway). The [Equinor REST API Guidelines](rest_guidelines.md) is an accompanying document containing guidelines and recommendations specifically for REST API design.
 
-Other protocols like GraphQL, AMQP and MQTT may be used when they bring significant benefits. But keep in mind that these protocols are not supported by the OpenAPI specification nor by our [API portal](#api-portal) & [API gateway](#api-gateway), and are best suited for app-private APIs.
+Other protocols like GraphQL, AMQP and MQTT can and should be used when they are more suitable than REST. Making these APIs discoverable through the API Portal is not possible, due to technical limitation. Metadata about the API should then be published in another location (e.g. a GitHub repo). Security features like those provided by the API gateway, should be considered through other serv
+
+Within the industrial automation domain [OPC UA](#opc-ua) is the preferred API mechanism. 
 
 
 ### <a id="opc-ua"></a>OPC UA
